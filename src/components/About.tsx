@@ -26,7 +26,7 @@ const About = () => {
   const certifications = [
     "Flutter Development - ICT Ministry & Bangladesh Computer Council",
     "UI/UX Design Fundamentals - Ostad",
-    "Flutter Development Course - Ostad (Near Completion)",
+    "Flutter App Development Course- Ostad (Near Completion)",
   ];
 
   return (
