@@ -8,8 +8,9 @@ const Portfolio = () => {
       title: "Bangla Carambola Companion",
       tagline: "AI-powered agricultural disease diagnosis",
       description: "Automated disease diagnosis powered by Ensemble Deep Learning with MobileNetV2 and EfficientNetB0.",
-      tech: ["Flutter", "Deep Learning", "Firebase", "Google Maps"],
+      tech: ["TypeScript", "React", "Tailwind CSS", "shadcn/ui", "Vercel"],
       github: "https://github.com/faiaz5415/bangla-carambola-companion",
+      live: "https://kamrangabondhu.app",
       highlights: [
         "Grad-CAM integration for visual decision-path heatmaps",
         "Virtual Agronomist with localized treatment plans",
@@ -188,6 +189,23 @@ const Portfolio = () => {
                     GitHub
                   </a>
                 </Button>
+                {project.live && (
+                  <Button
+                    asChild
+                    size="sm"
+                    className="flex-1"
+                  >
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </a>
+                  </Button>
+                )}
               </div>
             </Card>
           ))}
