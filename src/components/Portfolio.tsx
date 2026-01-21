@@ -5,6 +5,45 @@ import { Button } from "./ui/button";
 const Portfolio = () => {
   const projects = [
     {
+      title: "Bangla Carambola Companion",
+      tagline: "AI-powered agricultural disease diagnosis",
+      description: "Automated disease diagnosis powered by Ensemble Deep Learning with MobileNetV2 and EfficientNetB0.",
+      tech: ["Flutter", "Deep Learning", "Firebase", "Google Maps"],
+      github: "https://github.com/faiaz5415/bangla-carambola-companion",
+      highlights: [
+        "Grad-CAM integration for visual decision-path heatmaps",
+        "Virtual Agronomist with localized treatment plans",
+        "Market intelligence dashboard for price monitoring",
+        "Gamified 'Krishi Hero' leaderboard and points system",
+        "Emergency agricultural helpline integration",
+        "Bilingual interface (Bangla & English)",
+      ],
+    },
+    {
+      title: "Football Live Score App",
+      tagline: "Real-time match score tracking",
+      description: "Real-time football match score tracking with Firebase backend for live data synchronization.",
+      tech: ["Flutter", "Firebase", "Realtime DB"],
+      github: "https://github.com/faiaz5415/Football-Live-score-real-time-App-using-firebase",
+      highlights: [
+        "Real-time match score tracking",
+        "Firebase backend integration",
+        "Dynamic UI updates for football statistics",
+      ],
+    },
+    {
+      title: "Real-Time Map Tracker App",
+      tagline: "Live GPS location monitoring",
+      description: "Live GPS location monitoring with Google Maps API integration and real-time movement tracking.",
+      tech: ["Flutter", "Google Maps API", "GPS"],
+      github: "https://github.com/faiaz5415/Real-Time-Map-Tracker-APP",
+      highlights: [
+        "Live GPS location monitoring",
+        "Google Maps API integration",
+        "Real-time movement tracking and coordinate markers",
+      ],
+    },
+    {
       title: "Calculator App",
       tagline: "Functional calculator with modern UI",
       description: "Functional calculator with GridView & state management for arithmetic operations.",
@@ -74,18 +113,6 @@ const Portfolio = () => {
         "User authentication",
         "Task lifecycle management",
         "Ready for deployment",
-      ],
-    },
-    {
-      title: "Firebase Live Score App",
-      tagline: "Real-time sports scores",
-      description: "Real-time sports scores using Firebase streams for instant updates.",
-      tech: ["Flutter", "Firebase", "Realtime DB"],
-      github: "https://github.com/faiaz5415/firebase_live_score_app",
-      highlights: [
-        "Real-time score updates",
-        "Firebase Realtime Database",
-        "Live match tracking",
       ],
     },
   ];
