@@ -7,7 +7,7 @@ const About = () => {
       institution: "Daffodil International University",
       degree: "BSc in Computer Science & Engineering",
       period: "2022 - 2025",
-      focus: "Flutter Mobile App Development",
+      focus: "Graduated",
     },
     {
       institution: "Kushtia Govt Central College",

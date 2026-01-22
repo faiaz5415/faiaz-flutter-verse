@@ -12,27 +12,27 @@ const Skills = () => {
     },
     {
       category: "Networking & Data",
-      skills: ["HTTP", "Dio", "JSON Serialization", "REST APIs"],
+      skills: ["HTTP", "JSON Serialization", "REST APIs"],
     },
     {
       category: "Local Storage",
-      skills: ["SharedPreferences", "Hive", "SQLite", "Secure Storage"],
+      skills: ["SQLite", "Secure Storage"],
     },
     {
       category: "Authentication",
-      skills: ["Firebase Auth", "OAuth 2.0", "JWT", "Biometric Auth"],
+      skills: ["Firebase Auth"],
     },
     {
       category: "Testing & Tools",
-      skills: ["Unit Testing", "Widget Testing", "Integration Testing", "Flutter DevTools"],
+      skills: ["Unit Testing", "Widget Testing"],
     },
     {
       category: "CI/CD & DevOps",
-      skills: ["GitHub Actions", "Codemagic", "Fastlane", "Git"],
+      skills: ["GitHub Actions", "Git"],
     },
     {
       category: "Programming Concepts",
-      skills: ["OOP", "Null Safety", "Async/Await", "Streams"],
+      skills: ["OOP", "Null Safety", "Async/Await"],
     },
   ];
 
