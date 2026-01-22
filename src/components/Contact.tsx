@@ -7,8 +7,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "hasan15-5415@diu.edu.bd",
-      href: "mailto:hasan15-5415@diu.edu.bd",
+      value: "faiazzhasan@gmail.com",
+      href: "mailto:faiazzhasan@gmail.com",
     },
     {
       icon: Phone,
@@ -89,7 +89,11 @@ const Contact = () => {
 
             {/* Resume Download */}
             <Card className="p-6 card-elevation border-none bg-gradient-to-br from-primary to-primary-dark text-primary-foreground">
-              <div className="flex items-center justify-between">
+              <a
+                href="/Faiaz_Hasan_CV_Resume.pdf"
+                download="Faiaz_Hasan_Resume.pdf"
+                className="flex items-center justify-between group"
+              >
                 <div>
                   <h4 className="font-bold text-lg mb-1">Resume</h4>
                   <p className="text-sm opacity-90">Download my CV</p>
@@ -97,11 +101,11 @@ const Contact = () => {
                 <Button
                   variant="secondary"
                   size="icon"
-                  className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+                  className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 group-hover:scale-110 transition-transform"
                 >
                   <Download size={20} />
                 </Button>
-              </div>
+              </a>
             </Card>
           </div>
 
@@ -150,7 +154,7 @@ const Contact = () => {
                 asChild
                 className="w-full bg-primary hover:bg-primary-dark text-primary-foreground"
               >
-                <a href="mailto:hasan15-5415@diu.edu.bd">Send Me an Email</a>
+                <a href="mailto:faiazzhasan@gmail.com">Send Me an Email</a>
               </Button>
             </Card>
           </div>

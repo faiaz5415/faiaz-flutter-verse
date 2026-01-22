@@ -135,7 +135,7 @@ const Portfolio = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="p-6 card-elevation border-none bg-card overflow-hidden group"
+              className="p-6 card-elevation border-none bg-card overflow-hidden group flex flex-col h-full"
             >
               <div className="mb-4">
                 <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
@@ -162,7 +162,7 @@ const Portfolio = () => {
               </div>
 
               {/* Highlights */}
-              <div className="mb-6 space-y-2">
+              <div className="mb-6 space-y-2 flex-grow">
                 {project.highlights.map((highlight, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
@@ -171,24 +171,8 @@ const Portfolio = () => {
                 ))}
               </div>
 
-              {/* Links */}
-              <div className="flex gap-3">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                >
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <Github size={16} />
-                    GitHub
-                  </a>
-                </Button>
+              {/* Links - Always at bottom */}
+              <div className="flex gap-3 mt-auto">
                 {project.live && (
                   <Button
                     asChild
@@ -206,6 +190,22 @@ const Portfolio = () => {
                     </a>
                   </Button>
                 )}
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                >
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Github size={16} />
+                    GitHub
+                  </a>
+                </Button>
               </div>
             </Card>
           ))}
