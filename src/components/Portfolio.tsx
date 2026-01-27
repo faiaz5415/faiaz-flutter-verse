@@ -49,7 +49,7 @@ const Portfolio = () => {
       tagline: "Mess Management Mobile Application (In Progress)",
       description: "Developing a meal tracking and expense management app for communal living.",
       tech: ["Flutter", "Firebase", "Firestore", "Riverpod"],
-      github: "",
+      github: "https://github.com/faiaz5415/MessMate-Pro",
       highlights: [
         "Firebase Authentication with role-based access (Admin & Messmate)",
         "Real-time data sync and dynamic meal-rate calculations via Firestore",
