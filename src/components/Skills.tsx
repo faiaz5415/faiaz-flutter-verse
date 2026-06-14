@@ -8,15 +8,15 @@ const Skills = () => {
     },
     {
       category: "State Management",
-      skills: ["Provider", "GetX", "Riverpod", "BLoC"],
+      skills: ["Provider", "GetX", "BLoC"],
     },
     {
       category: "Networking & Data",
-      skills: ["HTTP", "JSON Serialization", "REST APIs"],
+      skills: ["HTTP", "Dio", "JSON Serialization", "REST APIs"],
     },
     {
       category: "Local Storage",
-      skills: ["SQLite", "Secure Storage"],
+      skills: ["SQLite", "Get Storage", "Secure Storage"],
     },
     {
       category: "Authentication",
@@ -33,6 +33,14 @@ const Skills = () => {
     {
       category: "Programming Concepts",
       skills: ["OOP", "Null Safety", "Async/Await"],
+    },
+    {
+      category: "AI-Powered Development",
+      skills: ["Personalized Prompting", "Antigravity", "Claude Code", "Kimi", "Gemini", "Replit", "Manush AI"],
+    },
+    {
+      category: "Payment Integration",
+      skills: ["Stripe", "PayPal"],
     },
   ];
 
