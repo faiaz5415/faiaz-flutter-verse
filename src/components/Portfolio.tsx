@@ -159,84 +159,117 @@ const Portfolio = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="p-6 card-elevation border-none bg-card overflow-hidden group flex flex-col h-full"
-            >
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-primary font-medium mb-3">
-                  {project.tagline}
-                </p>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
-              </div>
+        {/* Personal Projects Subsection */}
+        <div className="mb-16">
+          <div className="text-center mb-8 animate-fade-up">
+            <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+              Personal Projects
+            </h3>
+            <div className="w-16 h-1 bg-primary mx-auto"></div>
+          </div>
 
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 bg-primary-light text-primary text-xs rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <Card
+                key={index}
+                className="p-6 card-elevation border-none bg-card overflow-hidden group flex flex-col h-full"
+              >
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-primary font-medium mb-3">
+                    {project.tagline}
+                  </p>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {project.description}
+                  </p>
+                </div>
 
-              {/* Highlights */}
-              <div className="mb-6 space-y-2 flex-grow">
-                {project.highlights.map((highlight, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                    <p className="text-xs text-muted-foreground">{highlight}</p>
-                  </div>
-                ))}
-              </div>
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 bg-primary-light text-primary text-xs rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
 
-              {/* Links - Always at bottom */}
-              <div className="flex gap-3 mt-auto">
-                {project.live && (
+                {/* Highlights */}
+                <div className="mb-6 space-y-2 flex-grow">
+                  {project.highlights.map((highlight, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                      <p className="text-xs text-muted-foreground">{highlight}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Links - Always at bottom */}
+                <div className="flex gap-3 mt-auto">
+                  {project.live && (
+                    <Button
+                      asChild
+                      size="sm"
+                      className="flex-1"
+                    >
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <ExternalLink size={16} />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
                   <Button
                     asChild
+                    variant="outline"
                     size="sm"
-                    className="flex-1"
+                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                   >
                     <a
-                      href={project.live}
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2"
                     >
-                      <ExternalLink size={16} />
-                      Live Demo
+                      <Github size={16} />
+                      GitHub
                     </a>
                   </Button>
-                )}
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                >
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <Github size={16} />
-                    GitHub
-                  </a>
-                </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Client Work Subsection */}
+        <div>
+          <div className="text-center mb-8 animate-fade-up">
+            <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+              Client Work
+            </h3>
+            <div className="w-16 h-1 bg-primary mx-auto"></div>
+          </div>
+
+          <Card className="p-12 card-elevation border-none bg-card text-center">
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center">
+                <span className="text-3xl">🚧</span>
               </div>
-            </Card>
-          ))}
+              <h4 className="text-2xl font-bold text-foreground">Coming Soon</h4>
+              <p className="text-muted-foreground max-w-md mx-auto">
+                Professional client projects will be showcased here. Stay tuned for
+                updates!
+              </p>
+            </div>
+          </Card>
         </div>
       </div>
     </section>

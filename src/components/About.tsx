@@ -26,7 +26,7 @@ const About = () => {
   const certifications = [
     "Flutter Development - ICT Ministry & Bangladesh Computer Council",
     "UI/UX Design Fundamentals - Ostad",
-    "Flutter App Development Course- Ostad (Near Completion)",
+    "Flutter App Development Course (Ostad Pro)",
   ];
 
   return (
@@ -38,7 +38,7 @@ const About = () => {
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            A passionate Flutter Developer committed to transforming ideas into
+            A passionate Flutter AI Engineer committed to transforming ideas into
             seamless mobile experiences. I specialize in app development, UI/UX
             design, and interactive prototyping—building intuitive interfaces
             and crafting apps that delight users.

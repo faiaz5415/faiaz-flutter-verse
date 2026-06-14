@@ -163,7 +163,7 @@ const Contact = () => {
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground">
-            ©2025 Kh Faiaz Hasan. All rights reserved.
+            ©2026 Kh Faiaz Hasan. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             Built with Flutter mindset • Designed with passion

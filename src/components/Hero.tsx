@@ -19,7 +19,7 @@ const Hero = () => {
               <span className="gradient-text">Kh Faiaz Hasan</span>
             </h1>
             <p className="text-2xl md:text-3xl text-muted-foreground mb-2">
-              Flutter Developer
+              Flutter AI Engineer
             </p>
             <p className="text-xl text-muted-foreground mb-6">
               Building beautiful, production-ready mobile apps
@@ -91,7 +91,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-dark rounded-full blur-2xl opacity-20 animate-pulse"></div>
               <img
                 src={profileImage}
-                alt="Kh Faiaz Hasan - Flutter Developer"
+                alt="Kh Faiaz Hasan - Flutter AI Engineer"
                 className="relative w-72 h-72 md:w-96 md:h-96 rounded-full object-cover border-8 border-background shadow-2xl"
               />
             </div>
