@@ -1,4 +1,5 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 
@@ -258,18 +259,41 @@ const Portfolio = () => {
             <div className="w-16 h-1 bg-primary mx-auto"></div>
           </div>
 
-          <Card className="p-12 card-elevation border-none bg-card text-center">
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-primary-light flex items-center justify-center">
-                <span className="text-3xl">🚧</span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="p-6 card-elevation border-none bg-card overflow-hidden group flex flex-col h-full">
+              <div className="mb-4">
+                <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  Voyage AI
+                </h3>
+                <p className="text-sm text-primary font-medium mb-3">
+                  AI-powered travel companion
+                </p>
+                <p className="text-muted-foreground text-sm mb-4">
+                  A trip-based application fully powered by AI — where AI handles
+                  itinerary generation, travel support, and proactive real-time chat.
+                </p>
               </div>
-              <h4 className="text-2xl font-bold text-foreground">Coming Soon</h4>
-              <p className="text-muted-foreground max-w-md mx-auto">
-                Professional client projects will be showcased here. Stay tuned for
-                updates!
-              </p>
-            </div>
-          </Card>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {["Flutter", "Firebase", "AI/SSE", "Google Maps", "PayPal"].map((t) => (
+                  <span key={t} className="px-3 py-1 bg-primary-light text-primary text-xs rounded-full">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex-grow"></div>
+
+              <div className="mt-auto">
+                <Button asChild size="sm" className="w-full">
+                  <Link to="/projects/voyage-ai" className="flex items-center gap-2">
+                    View Details
+                    <ArrowRight size={16} />
+                  </Link>
+                </Button>
+              </div>
+            </Card>
+          </div>
         </div>
       </div>
     </section>
