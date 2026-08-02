@@ -1,7 +1,58 @@
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ExternalLink, Github, Smartphone } from "lucide-react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
+
+// To update a screenshot later, just set `image` to an imported asset or a URL.
+const clientProjects: {
+  title: string;
+  tagline: string;
+  description: string;
+  tech: string[];
+  image?: string;
+}[] = [
+  {
+    title: "Ojais Food Scanner",
+    tagline: "AI-Based Food Scanner",
+    description:
+      "AI-powered food scanning app with real-time API integration for intelligent food recognition and analysis.",
+    tech: ["Flutter", "Firebase Auth", "RxDart", "GetX", "GetStorage", "Dio", "RevenueCat"],
+  },
+  {
+    title: "STEMRN",
+    tagline: "AI-Powered Nursing Education App",
+    description:
+      "AI-integrated educational platform for nursing professionals with Stripe subscriptions and live API-driven content.",
+    tech: ["Flutter", "Firebase Auth", "Stripe", "RxDart", "GetX", "GetStorage", "Dio"],
+  },
+  {
+    title: "Jaysea AI",
+    tagline: "Identity-Driven AI Chatbot",
+    description:
+      "AI chatbot that adapts behavior, tone, and responses based on user-defined identity and boundaries.",
+    tech: ["Flutter", "Dio", "RxDart", "GetX"],
+  },
+  {
+    title: "Voyage AI",
+    tagline: "AI-powered travel companion",
+    description:
+      "A trip-based application fully powered by AI — where AI handles itinerary generation, travel support, and proactive real-time chat.",
+    tech: ["Flutter", "Firebase", "AI/SSE", "Google Maps", "PayPal"],
+  },
+  {
+    title: "Kind Pack",
+    tagline: "SaaS Enterprise Management System (In Development)",
+    description:
+      "Multi-role enterprise platform with e-commerce workflows, role-based access control, and AI-driven calculations.",
+    tech: ["Flutter", "Firebase Auth", "Dio", "RxDart"],
+  },
+  {
+    title: "Proppin",
+    tagline: "Real Estate Management System (Available on Play Store)",
+    description:
+      "Smart all-in-one platform to manage properties, tenants, and real estate operations.",
+    tech: ["Flutter", "Firebase Auth", "Dio", "RxDart", "Provider"],
+  },
+];
 
 const Portfolio = () => {
   const projects = [
