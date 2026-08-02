@@ -2,89 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* 
+  Flutter Dev HUD & Sci-Fi SaaS Design System
+  Primary Accent: Flutter Cyan-Blue Gradient (#0468D7 -> #13B9FD)
+  Background: Deep Navy / Near-Black (#05080F / #0A0E17)
 */
 
 @layer base {
   :root {
-    /* Material Blue Design System - Flutter Inspired */
-    --background: 0 0% 100%;
-    --foreground: 210 17% 20%;
+    --background: 222 50% 4%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 17% 20%;
-    --card-elevation: 0 6px 18px rgba(33, 150, 243, 0.08);
+    --card: 222 40% 8%;
+    --card-foreground: 210 40% 98%;
+    --card-border: 217 33% 18%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 17% 20%;
+    --popover: 222 40% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Material Blue - Primary */
-    --primary: 210 94% 53%;
+    /* Flutter Blue Primary */
+    --primary: 199 98% 53%;
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 210 79% 44%;
-    --primary-light: 210 77% 95%;
+    --primary-dark: 212 96% 43%;
+    --primary-light: 199 98% 18%;
 
-    /* Secondary/Accent */
-    --secondary: 210 77% 95%;
-    --secondary-foreground: 210 94% 53%;
+    /* Electric Secondary / Cyan Glow */
+    --secondary: 222 35% 12%;
+    --secondary-foreground: 199 98% 53%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 210 17% 48%;
+    --muted: 222 30% 14%;
+    --muted-foreground: 215 20% 68%;
 
-    --accent: 210 77% 95%;
-    --accent-foreground: 210 94% 53%;
+    --accent: 199 98% 53%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 31% 91%;
-    --input: 210 31% 91%;
-    --ring: 210 94% 53%;
+    --border: 217 33% 16%;
+    --input: 217 33% 16%;
+    --ring: 199 98% 53%;
 
-    --radius: 1.25rem;
+    --radius: 1rem;
 
-    /* Custom Design Tokens */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow-card: 0 6px 18px rgba(33, 150, 243, 0.08);
-    --shadow-card-hover: 0 12px 28px rgba(33, 150, 243, 0.15);
-    --shadow-elevated: 0 8px 24px rgba(33, 150, 243, 0.12);
+    /* Elevated Glass Shadows & Glows */
+    --shadow-glow: 0 0 25px rgba(19, 185, 253, 0.15);
+    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    --shadow-card-hover: 0 20px 40px -15px rgba(19, 185, 253, 0.25);
   }
 
   .dark {
-    --background: 210 30% 8%;
+    --background: 222 50% 4%;
     --foreground: 210 40% 98%;
-
-    --card: 210 25% 12%;
+    --card: 222 40% 8%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 210 25% 12%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 94% 53%;
-    --primary-foreground: 0 0% 100%;
-    --primary-dark: 210 79% 44%;
-    --primary-light: 210 60% 20%;
-
-    --secondary: 210 30% 18%;
-    --secondary-foreground: 210 94% 53%;
-
-    --muted: 210 30% 15%;
-    --muted-foreground: 210 20% 65%;
-
-    --accent: 210 30% 18%;
-    --accent-foreground: 210 94% 53%;
-
-    --destructive: 0 62% 50%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 210 30% 18%;
-    --input: 210 30% 18%;
-    --ring: 210 94% 53%;
-
-    --shadow-card: 0 6px 18px rgba(0, 0, 0, 0.3);
-    --shadow-card-hover: 0 12px 28px rgba(0, 0, 0, 0.4);
-    --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --border: 217 33% 16%;
   }
 }
 
@@ -94,8 +66,15 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background-color: #05080f;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(4, 104, 215, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(19, 185, 253, 0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(123, 44, 191, 0.05) 0px, transparent 60%);
+    background-attachment: fixed;
+    overflow-x: hidden;
   }
 
   html {
@@ -104,35 +83,53 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  .card-elevation {
-    box-shadow: var(--shadow-card);
-    transition: var(--transition-smooth);
+  /* Sci-fi HUD Grid pattern */
+  .bg-hud-grid {
+    background-size: 45px 45px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   }
 
-  .card-elevation:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-6px);
+  /* Glassmorphism Card Style */
+  .glass-card {
+    background: rgba(10, 14, 23, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
 
-  .animate-fade-up {
-    animation: fade-up 0.6s ease-out;
-  }
-
-  @keyframes fade-up {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
+  /* Gradient Text Utility */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+    background: linear-gradient(135deg, #13B9FD 0%, #0468D7 50%, #00F2FE 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Glowing Border Effect */
+  .glow-border {
+    position: relative;
+  }
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(19, 185, 253, 0.4), rgba(4, 104, 215, 0.1), rgba(123, 44, 191, 0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* 3D Transform Utilities */
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .perspective-1000 {
+    perspective: 1000px;
   }
 }
