@@ -1,5 +1,6 @@
-import { Smartphone, Palette, Settings } from "lucide-react";
-import { Card } from "./ui/card";
+import { Smartphone, Palette, Settings, Check } from "lucide-react";
+import { TiltCard } from "./ui/TiltCard";
+import { motion } from "framer-motion";
 
 const Services = () => {
   const services = [
@@ -42,47 +43,58 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 px-4">
+    <section id="services" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 gradient-text">
             What I Do
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-cyan-400 mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Comprehensive Flutter development services from design to deployment
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card
+              <motion.div
                 key={index}
-                className="p-8 card-elevation border-none bg-card group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="h-full"
               >
-                <div className="mb-6 inline-block p-4 bg-primary-light rounded-2xl group-hover:bg-primary transition-colors">
-                  <Icon
-                    className="text-primary group-hover:text-primary-foreground transition-colors"
-                    size={32}
-                  />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-foreground">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  {service.description}
-                </p>
-                <div className="space-y-2">
-                  {service.deliverables.map((item, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-sm text-muted-foreground">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </Card>
+                <TiltCard className="p-8 flex flex-col h-full">
+                  <div className="mb-6 inline-flex p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-cyan-500/10 border border-primary/30 text-cyan-300 w-fit group-hover:scale-110 transition-transform duration-300">
+                    <Icon size={32} />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-6 leading-relaxed flex-grow">
+                    {service.description}
+                  </p>
+                  <div className="space-y-2.5 pt-4 border-t border-white/10">
+                    {service.deliverables.map((item, i) => (
+                      <div key={i} className="flex items-start gap-2.5">
+                        <div className="p-1 rounded-full bg-emerald-500/10 text-emerald-400 mt-0.5 shrink-0">
+                          <Check size={12} />
+                        </div>
+                        <p className="text-xs text-muted-foreground font-medium">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </TiltCard>
+              </motion.div>
             );
           })}
         </div>

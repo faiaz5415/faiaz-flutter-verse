@@ -1,6 +1,7 @@
 import { ExternalLink, Github, Smartphone } from "lucide-react";
-import { Card } from "./ui/card";
 import { Button } from "./ui/button";
+import { TiltCard } from "./ui/TiltCard";
+import { motion } from "framer-motion";
 
 import ojaisImg from "@/assets/projects/ojais.png";
 import proppinImg from "@/assets/projects/proppin.jpg";
@@ -18,56 +19,56 @@ const clientProjects: {
   image?: string;
   link?: string;
 }[] = [
-  {
-    title: "Ojais Food Scanner",
-    tagline: "AI-Based Food Scanner",
-    description:
-      "AI-powered food scanning app with real-time API integration for intelligent food recognition and analysis.",
-    tech: ["Flutter", "Firebase Auth", "RxDart", "GetX", "GetStorage", "Dio", "RevenueCat"],
-    image: ojaisImg,
-  },
-  {
-    title: "STEMRN",
-    tagline: "AI-Powered Nursing Education App",
-    description:
-      "AI-integrated educational platform for nursing professionals with Stripe subscriptions and live API-driven content.",
-    tech: ["Flutter", "Firebase Auth", "Stripe", "RxDart", "GetX", "GetStorage", "Dio"],
-    image: stemrnImg,
-  },
-  {
-    title: "Jaysea AI",
-    tagline: "Identity-Driven AI Chatbot",
-    description:
-      "AI chatbot that adapts behavior, tone, and responses based on user-defined identity and boundaries.",
-    tech: ["Flutter", "Dio", "RxDart", "GetX"],
-    image: jayseaImg,
-  },
-  {
-    title: "Voyage AI",
-    tagline: "AI-powered travel companion",
-    description:
-      "A trip-based application fully powered by AI — where AI handles itinerary generation, travel support, and proactive real-time chat.",
-    tech: ["Flutter", "Firebase", "AI/SSE", "Google Maps", "PayPal"],
-    image: voyageImg,
-  },
-  {
-    title: "Kind Pack",
-    tagline: "SaaS Enterprise Management System (In Development)",
-    description:
-      "Multi-role enterprise platform with e-commerce workflows, role-based access control, and AI-driven calculations.",
-    tech: ["Flutter", "Firebase Auth", "Dio", "RxDart"],
-    image: kindpackImg,
-  },
-  {
-    title: "Proppin",
-    tagline: "Real Estate Management System (Play Store)",
-    description:
-      "Smart all-in-one platform to manage properties, tenants, and real estate operations.",
-    tech: ["Flutter", "Firebase Auth", "Dio", "RxDart", "Provider"],
-    image: proppinImg,
-    link: "https://play.google.com/store/apps/details?id=com.proppin.app&pcampaignid=web_share",
-  },
-];
+    {
+      title: "Ojais Food Scanner",
+      tagline: "AI-Based Food Scanner",
+      description:
+        "AI-powered food scanning app with real-time API integration for intelligent food recognition and analysis.",
+      tech: ["Flutter", "Firebase Auth", "RxDart", "GetX", "GetStorage", "Dio", "RevenueCat"],
+      image: ojaisImg,
+    },
+    {
+      title: "STEMRN",
+      tagline: "AI-Powered Nursing Education App",
+      description:
+        "AI-integrated educational platform for nursing professionals with Stripe subscriptions and live API-driven content.",
+      tech: ["Flutter", "Firebase Auth", "Stripe", "RxDart", "GetX", "GetStorage", "Dio"],
+      image: stemrnImg,
+    },
+    {
+      title: "Jaysea AI",
+      tagline: "Identity-Driven AI Chatbot",
+      description:
+        "AI chatbot that adapts behavior, tone, and responses based on user-defined identity and boundaries.",
+      tech: ["Flutter", "Dio", "RxDart", "GetX"],
+      image: jayseaImg,
+    },
+    {
+      title: "Voyage AI",
+      tagline: "AI-powered travel companion",
+      description:
+        "A trip-based application fully powered by AI — where AI handles itinerary generation, travel support, and proactive real-time chat.",
+      tech: ["Flutter", "Firebase", "AI/SSE", "Google Maps", "PayPal"],
+      image: voyageImg,
+    },
+    {
+      title: "Kind Pack",
+      tagline: "SaaS Enterprise Management System (In Development)",
+      description:
+        "Multi-role enterprise platform with e-commerce workflows, role-based access control, and AI-driven calculations.",
+      tech: ["Flutter", "Firebase Auth", "Dio", "RxDart"],
+      image: kindpackImg,
+    },
+    {
+      title: "Proppin",
+      tagline: "Real Estate Management System (Play Store)",
+      description:
+        "Smart all-in-one platform to manage properties, tenants, and real estate operations.",
+      tech: ["Flutter", "Firebase Auth", "Dio", "RxDart", "Provider"],
+      image: proppinImg,
+      link: "https://play.google.com/store/apps/details?id=com.proppin.app&pcampaignid=web_share",
+    },
+  ];
 
 const Portfolio = () => {
   const projects = [
@@ -134,9 +135,7 @@ const Portfolio = () => {
         "Secure authentication and Stripe payment integration",
         "Real-time cart, wishlist, and order tracking systems",
         "Admin Panel for inventory management and product uploads",
-        "Push Notifications via FCM for real-time order updates",
-        "Provider for efficient state management and data flow",
-        "High-performance, conversion-focused mobile UI/UX",
+        "Push Notifications via FCM for real-time order updates"
       ],
     },
     {
@@ -214,202 +213,244 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-20 px-4">
+    <section id="portfolio" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12 animate-fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 gradient-text">
             Portfolio
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-cyan-400 mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore my Flutter projects showcasing mobile app development expertise
           </p>
-        </div>
+        </motion.div>
 
         {/* Industry & Client Projects Subsection */}
-        <div className="mb-16">
-          <div className="text-center mb-8 animate-fade-up">
+        <div className="mb-20">
+          <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
               Industry &amp; Client Projects
             </h3>
-            <div className="w-16 h-1 bg-primary mx-auto"></div>
+            <div className="w-16 h-1 bg-primary/60 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {clientProjects.map((project) => (
-              <Card
+            {clientProjects.map((project, idx) => (
+              <motion.div
                 key={project.title}
-                className="p-6 card-elevation border-none bg-card overflow-hidden group flex flex-col h-full"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="h-full"
               >
-                {/* Screenshot preview */}
-                <div className="mb-6 flex justify-center">
-                  <div className="w-[190px] rounded-[2rem] border-4 border-foreground/10 bg-secondary p-2 shadow-lg transition-transform group-hover:-translate-y-1">
-                    <div className="aspect-[9/19] w-full overflow-hidden rounded-[1.5rem] bg-primary-light flex items-center justify-center">
-                      {project.image ? (
-                        <img
-                          src={project.image}
-                          alt={`${project.title} mobile app screenshot`}
-                          loading="lazy"
-                          className="h-full w-full object-cover"
-                        />
-                      ) : (
-                        <div className="flex flex-col items-center gap-2 text-primary/70">
-                          <Smartphone size={32} />
-                          <span className="text-[11px] font-medium">Preview coming soon</span>
-                        </div>
-                      )}
+                <TiltCard className="p-6 flex flex-col h-full group">
+                  {/* Screenshot preview phone frame */}
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-[190px] rounded-[2rem] border-4 border-white/10 bg-[#0A0E17] p-2 shadow-2xl transition-transform duration-300 group-hover:scale-105 group-hover:border-primary/40">
+                      <div className="aspect-[9/19] w-full overflow-hidden rounded-[1.5rem] bg-black/50 flex items-center justify-center relative">
+                        {project.image ? (
+                          <>
+                            <img
+                              src={project.image}
+                              alt={`${project.title} mobile app screenshot`}
+                              loading="lazy"
+                              className="h-full w-full object-cover object-top"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E17] via-transparent to-transparent opacity-30" />
+                          </>
+                        ) : (
+                          <div className="flex flex-col items-center gap-2 text-primary/70">
+                            <Smartphone size={32} />
+                            <span className="text-[11px] font-medium">Preview coming soon</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-primary font-medium mb-3">
-                  {project.link && project.tagline.includes("Play Store") ? (
-                    <>
-                      {project.tagline.replace("(Play Store)", "")}
-                      (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-primary-dark inline-flex items-center gap-1 font-semibold"
+                  <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+
+                  {/* Tagline & Play Store Link */}
+                  <p className="text-sm text-cyan-400 font-medium mb-3">
+                    {project.link && project.tagline.includes("Play Store") ? (
+                      <>
+                        {project.tagline.replace("(Play Store)", "")}
+                        (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline hover:text-cyan-300 inline-flex items-center gap-1 font-semibold"
+                        >
+                          Play Store <ExternalLink size={12} />
+                        </a>
+                        )
+                      </>
+                    ) : (
+                      project.tagline
+                    )}
+                  </p>
+
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-grow">
+                    {project.description}
+                  </p>
+
+                  {/* Tech stack badges */}
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-xs font-medium rounded-full"
                       >
-                        Play Store <ExternalLink size={12} />
-                      </a>
-                      )
-                    </>
-                  ) : (
-                    project.tagline
-                  )}
-                </p>
-                <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-3 py-1 bg-primary-light text-primary text-xs rounded-full"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                {project.link && (
-                  <div className="mt-4 pt-2">
-                    <Button
-                      asChild
-                      size="sm"
-                      className="w-full bg-primary hover:bg-primary-dark text-primary-foreground"
-                    >
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
-                      >
-                        <ExternalLink size={16} />
-                        View on Play Store
-                      </a>
-                    </Button>
+                        {t}
+                      </span>
+                    ))}
                   </div>
-                )}
-              </Card>
+
+                  {/* Optional Action Button for Play Store */}
+                  {project.link && (
+                    <div className="mt-4 pt-3 border-t border-white/10">
+                      <Button
+                        asChild
+                        size="sm"
+                        className="w-full bg-gradient-to-r from-[#0468D7] to-[#13B9FD] text-white font-semibold shadow-md hover:shadow-lg transition-all rounded-xl"
+                      >
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <ExternalLink size={16} />
+                          View on Play Store
+                        </a>
+                      </Button>
+                    </div>
+                  )}
+                </TiltCard>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Personal Projects Subsection */}
         <div>
-          <div className="text-center mb-8 animate-fade-up">
+          <div className="text-center mb-10">
             <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
               Personal Projects
             </h3>
-            <div className="w-16 h-1 bg-primary mx-auto"></div>
+            <div className="w-16 h-1 bg-primary/60 mx-auto rounded-full"></div>
           </div>
-
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="p-6 card-elevation border-none bg-card overflow-hidden group flex flex-col h-full"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: (index % 3) * 0.1 }}
+                className="h-full"
               >
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-primary font-medium mb-3">
-                    {project.tagline}
-                  </p>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {project.description}
-                  </p>
-                </div>
+                <TiltCard className="p-6 flex flex-col justify-between h-full group">
+                  <div className="flex flex-col h-full justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-cyan-400 font-medium mb-3">
+                        {project.tagline}
+                      </p>
+                      <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-primary-light text-primary text-xs rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                      {/* Tech Stack */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tech.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-xs font-medium rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
 
-                {/* Highlights */}
-                <div className="mb-6 space-y-2 flex-grow">
-                  {project.highlights.map((highlight, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
-                      <p className="text-xs text-muted-foreground">{highlight}</p>
+                      {/* Highlights */}
+                      <div className="mb-6 space-y-2 min-h-[85px]">
+                        {project.highlights.map((highlight, i) => (
+                          <div key={i} className="flex items-start gap-2">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 flex-shrink-0" />
+                            <p className="text-xs text-muted-foreground leading-normal">{highlight}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ))}
-                </div>
 
-                {/* Links - Always at bottom */}
-                <div className="flex gap-3 mt-auto">
-                  {project.live && (
-                    <Button
-                      asChild
-                      size="sm"
-                      className="flex-1"
-                    >
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2"
-                      >
-                        <ExternalLink size={16} />
-                        Live Demo
-                      </a>
-                    </Button>
-                  )}
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                  >
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2"
-                    >
-                      <Github size={16} />
-                      GitHub
-                    </a>
-                  </Button>
-                </div>
-              </Card>
+                    {/* Links - Pinned uniformly at bottom of card */}
+                    <div className="flex gap-3 mt-auto pt-4 border-t border-white/10">
+                      {project.live && (
+                        <Button
+                          asChild
+                          size="sm"
+                          className="flex-1 bg-gradient-to-r from-[#0468D7] to-[#13B9FD] text-white font-semibold rounded-xl"
+                        >
+                          <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2"
+                          >
+                            <ExternalLink size={16} />
+                            Live Demo
+                          </a>
+                        </Button>
+                      )}
+                      {project.github ? (
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="flex-1 border-primary/40 text-primary bg-primary/5 hover:bg-primary/20 hover:border-primary rounded-xl"
+                        >
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2"
+                          >
+                            <Github size={16} />
+                            GitHub
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          disabled
+                          className="flex-1 border-white/10 text-muted-foreground bg-white/5 opacity-50 cursor-not-allowed rounded-xl"
+                        >
+                          <span className="flex items-center justify-center gap-2">
+                            <Github size={16} />
+                            In Progress
+                          </span>
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </TiltCard>
+              </motion.div>
             ))}
           </div>
         </div>
