@@ -1,9 +1,10 @@
 import { Download, FileText } from "lucide-react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
+import resumeAsset from "@/assets/Faiaz_Hasan_Resume.pdf.asset.json";
 
-// Replace this file in /public to update the CV.
-const CV_PATH = "/Faiaz_Hasan_CV_Resume.pdf";
+const CV_PATH = resumeAsset.url;
+
 
 const Resume = () => {
   return (

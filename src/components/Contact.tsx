@@ -1,6 +1,8 @@
 import { Mail, Phone, Github, Linkedin, Facebook, Download } from "lucide-react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
+import resumeAsset from "@/assets/Faiaz_Hasan_Resume.pdf.asset.json";
+
 
 const Contact = () => {
   const contactInfo = [
@@ -90,7 +92,7 @@ const Contact = () => {
             {/* Resume Download */}
             <Card className="p-6 card-elevation border-none bg-gradient-to-br from-primary to-primary-dark text-primary-foreground">
               <a
-                href="/Faiaz_Hasan_CV_Resume.pdf"
+                href={resumeAsset.url}
                 download="Faiaz_Hasan_Resume.pdf"
                 className="flex items-center justify-between group"
               >
