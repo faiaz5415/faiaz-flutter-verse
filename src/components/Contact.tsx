@@ -1,6 +1,8 @@
 import { Mail, Phone, Github, Linkedin, Facebook, Download } from "lucide-react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
+import resumeAsset from "@/assets/Faiaz_Hasan_Resume.pdf.asset.json";
+
 
 const Contact = () => {
   const contactInfo = [
