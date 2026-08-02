@@ -40,7 +40,7 @@ const About = () => {
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             A passionate Flutter AI Engineer committed to transforming ideas into
             seamless mobile experiences. I specialize in app development, UI/UX
-            design, and interactive prototyping—building intuitive interfaces
+            design, and interactive prototyping building intuitive interfaces
             and crafting apps that delight users.
           </p>
         </div>

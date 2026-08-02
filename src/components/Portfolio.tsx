@@ -2,6 +2,13 @@ import { ExternalLink, Github, Smartphone } from "lucide-react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 
+import ojaisImg from "@/assets/projects/ojais.png";
+import proppinImg from "@/assets/projects/proppin.jpg";
+import stemrnImg from "@/assets/projects/stemrn.jpg";
+import kindpackImg from "@/assets/projects/kindpack.png";
+import jayseaImg from "@/assets/projects/jaysea.png";
+import voyageImg from "@/assets/projects/voyage.png";
+
 // To update a screenshot later, just set `image` to an imported asset or a URL.
 const clientProjects: {
   title: string;
@@ -9,6 +16,7 @@ const clientProjects: {
   description: string;
   tech: string[];
   image?: string;
+  link?: string;
 }[] = [
   {
     title: "Ojais Food Scanner",
@@ -16,6 +24,7 @@ const clientProjects: {
     description:
       "AI-powered food scanning app with real-time API integration for intelligent food recognition and analysis.",
     tech: ["Flutter", "Firebase Auth", "RxDart", "GetX", "GetStorage", "Dio", "RevenueCat"],
+    image: ojaisImg,
   },
   {
     title: "STEMRN",
@@ -23,6 +32,7 @@ const clientProjects: {
     description:
       "AI-integrated educational platform for nursing professionals with Stripe subscriptions and live API-driven content.",
     tech: ["Flutter", "Firebase Auth", "Stripe", "RxDart", "GetX", "GetStorage", "Dio"],
+    image: stemrnImg,
   },
   {
     title: "Jaysea AI",
@@ -30,6 +40,7 @@ const clientProjects: {
     description:
       "AI chatbot that adapts behavior, tone, and responses based on user-defined identity and boundaries.",
     tech: ["Flutter", "Dio", "RxDart", "GetX"],
+    image: jayseaImg,
   },
   {
     title: "Voyage AI",
@@ -37,6 +48,7 @@ const clientProjects: {
     description:
       "A trip-based application fully powered by AI — where AI handles itinerary generation, travel support, and proactive real-time chat.",
     tech: ["Flutter", "Firebase", "AI/SSE", "Google Maps", "PayPal"],
+    image: voyageImg,
   },
   {
     title: "Kind Pack",
@@ -44,13 +56,16 @@ const clientProjects: {
     description:
       "Multi-role enterprise platform with e-commerce workflows, role-based access control, and AI-driven calculations.",
     tech: ["Flutter", "Firebase Auth", "Dio", "RxDart"],
+    image: kindpackImg,
   },
   {
     title: "Proppin",
-    tagline: "Real Estate Management System (Available on Play Store)",
+    tagline: "Real Estate Management System (Play Store)",
     description:
       "Smart all-in-one platform to manage properties, tenants, and real estate operations.",
     tech: ["Flutter", "Firebase Auth", "Dio", "RxDart", "Provider"],
+    image: proppinImg,
+    link: "https://play.google.com/store/apps/details?id=com.proppin.app&pcampaignid=web_share",
   },
 ];
 
@@ -251,7 +266,23 @@ const Portfolio = () => {
                   {project.title}
                 </h3>
                 <p className="text-sm text-primary font-medium mb-3">
-                  {project.tagline}
+                  {project.link && project.tagline.includes("Play Store") ? (
+                    <>
+                      {project.tagline.replace("(Play Store)", "")}
+                      (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-primary-dark inline-flex items-center gap-1 font-semibold"
+                      >
+                        Play Store <ExternalLink size={12} />
+                      </a>
+                      )
+                    </>
+                  ) : (
+                    project.tagline
+                  )}
                 </p>
                 <p className="text-muted-foreground text-sm mb-4 flex-grow">
                   {project.description}
@@ -267,6 +298,26 @@ const Portfolio = () => {
                     </span>
                   ))}
                 </div>
+
+                {project.link && (
+                  <div className="mt-4 pt-2">
+                    <Button
+                      asChild
+                      size="sm"
+                      className="w-full bg-primary hover:bg-primary-dark text-primary-foreground"
+                    >
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <ExternalLink size={16} />
+                        View on Play Store
+                      </a>
+                    </Button>
+                  </div>
+                )}
               </Card>
             ))}
           </div>
