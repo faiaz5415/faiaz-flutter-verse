@@ -1,7 +1,58 @@
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ExternalLink, Github, Smartphone } from "lucide-react";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
+
+// To update a screenshot later, just set `image` to an imported asset or a URL.
+const clientProjects: {
+  title: string;
+  tagline: string;
+  description: string;
+  tech: string[];
+  image?: string;
+}[] = [
+  {
+    title: "Ojais Food Scanner",
+    tagline: "AI-Based Food Scanner",
+    description:
+      "AI-powered food scanning app with real-time API integration for intelligent food recognition and analysis.",
+    tech: ["Flutter", "Firebase Auth", "RxDart", "GetX", "GetStorage", "Dio", "RevenueCat"],
+  },
+  {
+    title: "STEMRN",
+    tagline: "AI-Powered Nursing Education App",
+    description:
+      "AI-integrated educational platform for nursing professionals with Stripe subscriptions and live API-driven content.",
+    tech: ["Flutter", "Firebase Auth", "Stripe", "RxDart", "GetX", "GetStorage", "Dio"],
+  },
+  {
+    title: "Jaysea AI",
+    tagline: "Identity-Driven AI Chatbot",
+    description:
+      "AI chatbot that adapts behavior, tone, and responses based on user-defined identity and boundaries.",
+    tech: ["Flutter", "Dio", "RxDart", "GetX"],
+  },
+  {
+    title: "Voyage AI",
+    tagline: "AI-powered travel companion",
+    description:
+      "A trip-based application fully powered by AI — where AI handles itinerary generation, travel support, and proactive real-time chat.",
+    tech: ["Flutter", "Firebase", "AI/SSE", "Google Maps", "PayPal"],
+  },
+  {
+    title: "Kind Pack",
+    tagline: "SaaS Enterprise Management System (In Development)",
+    description:
+      "Multi-role enterprise platform with e-commerce workflows, role-based access control, and AI-driven calculations.",
+    tech: ["Flutter", "Firebase Auth", "Dio", "RxDart"],
+  },
+  {
+    title: "Proppin",
+    tagline: "Real Estate Management System (Available on Play Store)",
+    description:
+      "Smart all-in-one platform to manage properties, tenants, and real estate operations.",
+    tech: ["Flutter", "Firebase Auth", "Dio", "RxDart", "Provider"],
+  },
+];
 
 const Portfolio = () => {
   const projects = [
@@ -160,14 +211,76 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Personal Projects Subsection */}
+        {/* Industry & Client Projects Subsection */}
         <div className="mb-16">
+          <div className="text-center mb-8 animate-fade-up">
+            <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+              Industry &amp; Client Projects
+            </h3>
+            <div className="w-16 h-1 bg-primary mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {clientProjects.map((project) => (
+              <Card
+                key={project.title}
+                className="p-6 card-elevation border-none bg-card overflow-hidden group flex flex-col h-full"
+              >
+                {/* Screenshot preview */}
+                <div className="mb-6 flex justify-center">
+                  <div className="w-[190px] rounded-[2rem] border-4 border-foreground/10 bg-secondary p-2 shadow-lg transition-transform group-hover:-translate-y-1">
+                    <div className="aspect-[9/19] w-full overflow-hidden rounded-[1.5rem] bg-primary-light flex items-center justify-center">
+                      {project.image ? (
+                        <img
+                          src={project.image}
+                          alt={`${project.title} mobile app screenshot`}
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex flex-col items-center gap-2 text-primary/70">
+                          <Smartphone size={32} />
+                          <span className="text-[11px] font-medium">Preview coming soon</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-primary font-medium mb-3">
+                  {project.tagline}
+                </p>
+                <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1 bg-primary-light text-primary text-xs rounded-full"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Personal Projects Subsection */}
+        <div>
           <div className="text-center mb-8 animate-fade-up">
             <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
               Personal Projects
             </h3>
             <div className="w-16 h-1 bg-primary mx-auto"></div>
           </div>
+
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -247,52 +360,6 @@ const Portfolio = () => {
                 </div>
               </Card>
             ))}
-          </div>
-        </div>
-
-        {/* Client Work Subsection */}
-        <div>
-          <div className="text-center mb-8 animate-fade-up">
-            <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
-              Client Work
-            </h3>
-            <div className="w-16 h-1 bg-primary mx-auto"></div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="p-6 card-elevation border-none bg-card overflow-hidden group flex flex-col h-full">
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-                  Voyage AI
-                </h3>
-                <p className="text-sm text-primary font-medium mb-3">
-                  AI-powered travel companion
-                </p>
-                <p className="text-muted-foreground text-sm mb-4">
-                  A trip-based application fully powered by AI — where AI handles
-                  itinerary generation, travel support, and proactive real-time chat.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {["Flutter", "Firebase", "AI/SSE", "Google Maps", "PayPal"].map((t) => (
-                  <span key={t} className="px-3 py-1 bg-primary-light text-primary text-xs rounded-full">
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex-grow"></div>
-
-              <div className="mt-auto">
-                <Button asChild size="sm" className="w-full">
-                  <Link to="/projects/voyage-ai" className="flex items-center gap-2">
-                    View Details
-                    <ArrowRight size={16} />
-                  </Link>
-                </Button>
-              </div>
-            </Card>
           </div>
         </div>
       </div>
