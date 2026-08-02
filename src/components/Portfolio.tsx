@@ -211,14 +211,76 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Personal Projects Subsection */}
+        {/* Industry & Client Projects Subsection */}
         <div className="mb-16">
+          <div className="text-center mb-8 animate-fade-up">
+            <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+              Industry &amp; Client Projects
+            </h3>
+            <div className="w-16 h-1 bg-primary mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {clientProjects.map((project) => (
+              <Card
+                key={project.title}
+                className="p-6 card-elevation border-none bg-card overflow-hidden group flex flex-col h-full"
+              >
+                {/* Screenshot preview */}
+                <div className="mb-6 flex justify-center">
+                  <div className="w-[190px] rounded-[2rem] border-4 border-foreground/10 bg-secondary p-2 shadow-lg transition-transform group-hover:-translate-y-1">
+                    <div className="aspect-[9/19] w-full overflow-hidden rounded-[1.5rem] bg-primary-light flex items-center justify-center">
+                      {project.image ? (
+                        <img
+                          src={project.image}
+                          alt={`${project.title} mobile app screenshot`}
+                          loading="lazy"
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex flex-col items-center gap-2 text-primary/70">
+                          <Smartphone size={32} />
+                          <span className="text-[11px] font-medium">Preview coming soon</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-primary font-medium mb-3">
+                  {project.tagline}
+                </p>
+                <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1 bg-primary-light text-primary text-xs rounded-full"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Personal Projects Subsection */}
+        <div>
           <div className="text-center mb-8 animate-fade-up">
             <h3 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
               Personal Projects
             </h3>
             <div className="w-16 h-1 bg-primary mx-auto"></div>
           </div>
+
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
